@@ -1,0 +1,3 @@
+Human Normal Walking Towards RADAR: 10
+Human Normal Walk and Then Fall RADAR: 10
+Human Limping Walking RADAR: 10

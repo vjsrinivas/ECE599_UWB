@@ -199,8 +199,8 @@ def reset_radar(X4): #Reset the radar, reccomended before changing radar setting
         quit()
         
 def setup_radar(X4,fps, baseband): #Sets the radar parameters   
-    #PRF_DIV = 16 #How much do you want to divide the PRF
-    PRF_DIV = 4
+    PRF_DIV = 16 #How much do you want to divide the PRF
+    #PRF_DIV = 4
     PRF = 143e6/PRF_DIV #Calculate the PRF
     iterations = 64
     dac_max = 1100
