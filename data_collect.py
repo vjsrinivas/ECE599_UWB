@@ -7,13 +7,13 @@ import time
 
 def main():   
     #FOLDER_NAME = "dataset/human_walking"
-    FOLDER_NAME = "dataset/human_limping"
-    #FOLDER_NAME = "dataset/human_falling"
+    #FOLDER_NAME = "dataset/human_limping"
+    FOLDER_NAME = "dataset/human_falling"
     os.makedirs(FOLDER_NAME, exist_ok=True)
 
     # PER DAY STUFF:
-    clip_num = 10
-    DATA_FILE_NAME = "11_4_2022_%i"%(clip_num)
+    clip_num = 40
+    DATA_FILE_NAME = "11_6_2022_%i"%(clip_num)
 
     options = SimpleNamespace(
         PORT="COM5",

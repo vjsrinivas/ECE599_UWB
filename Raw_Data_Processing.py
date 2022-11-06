@@ -6,7 +6,12 @@ import scipy
 import scipy.signal
 import scipy.ndimage as ndimg
 
-text = "test2.txt" # test2.txt is of me walking towards the UWB and then falling and then getting back up at the very end.
+#text = "dataset/human_falling/11_3_2022_3.txt" # test2.txt is of me walking towards the UWB and then falling and then getting back up at the very end.
+i = 40
+#_type = "human_walking"
+_type = "human_falling"
+#_type = "human_limping"
+text = "dataset/%s/11_6_2022_%i.txt"%(_type, i)
 rawData = np.loadtxt(text)
 l = rawData.shape[0]
 
@@ -17,9 +22,12 @@ IQ_Data = np.abs(IQ_Data)
 IQ_Data = IQ_Data.transpose()
 print(IQ_Data.shape)
 
+#plt.figure()
+#plt.imshow(IQ_Data)
+
 # STATIC SET FOR PRF_DIV=4
 # I was messnig with the RADAR stats to match the PRF listed in the gesture paper:
-IQ_Data = IQ_Data[:,0:315]
+#IQ_Data = IQ_Data[:,0:315]
 
 # clutter removal? (it works kinda)
 IQ_Data = (IQ_Data - np.min(IQ_Data))/np.ptp(IQ_Data)
@@ -47,8 +55,8 @@ plt.imshow(IQ_Data)
 plt.xlabel("Fast Time")
 plt.ylabel("Slow Time")
 plt.show()
-exit()
 
+'''
 bin_length = 8 * 1.5e8/23.328e9
 max_range = 192*bin_length
 IQ_Data[0:11,:] = 0; # how to determine if filtered IQ data should be 0 to 11
@@ -61,3 +69,4 @@ test2 = np.fft.fft(IQ_Data, axis=1)
 plt.figure()
 plt.imshow(test2.real)
 plt.show()
+'''
